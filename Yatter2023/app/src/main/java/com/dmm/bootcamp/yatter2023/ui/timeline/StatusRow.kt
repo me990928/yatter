@@ -31,7 +31,7 @@ fun StatusRow(
             .padding(vertical = 4.dp)
     ) {
         AsyncImage(
-            modifier = Modifier.size(48.dp),
+            modifier = Modifier.size(58.dp).padding(end = 10.dp),
             model = statusBindingModel.avatar,
             contentDescription = "アバター画像",
             contentScale = ContentScale.Crop,
