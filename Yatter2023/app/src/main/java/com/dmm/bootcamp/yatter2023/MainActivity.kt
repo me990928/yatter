@@ -25,9 +25,9 @@ class MainActivity : AppCompatActivity() {
       }
     }
 
-    val content: View = findViewById(android.R.id.content)
-    content.viewTreeObserver.addOnPreDrawListener { // Check if the initial data is ready.
-      false
-    }
+//    val content: View = findViewById(android.R.id.content)
+//    content.viewTreeObserver.addOnPreDrawListener { // Check if the initial data is ready.
+//      false
+//    }
   }
 }
