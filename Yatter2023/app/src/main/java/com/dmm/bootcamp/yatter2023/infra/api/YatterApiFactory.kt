@@ -15,7 +15,7 @@ class YatterApiFactory {
       .add(KotlinJsonAdapterFactory())
       .build()
     return Retrofit.Builder()
-      .baseUrl(BuildConfig.API_URL + "/v1/")
+      .baseUrl("http://192.168.68.74:8080/v1/") // 自分のIPアドレス
       .client(
         OkHttpClient.Builder()
           .addInterceptor(
