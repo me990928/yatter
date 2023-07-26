@@ -7,6 +7,7 @@ import com.dmm.bootcamp.yatter2023.domain.model.StatusId
 import com.dmm.bootcamp.yatter2023.domain.model.Username
 import com.dmm.bootcamp.yatter2023.domain.repository.StatusRepository
 import com.dmm.bootcamp.yatter2023.infra.domain.model.AccountImpl
+import com.dmm.bootcamp.yatter2023.ui.timeline.bindingmodel.converter.StatusConverter
 import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
 import io.mockk.coVerify
