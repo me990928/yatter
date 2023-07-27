@@ -117,8 +117,8 @@ fun LoginTemplatePreview() {
                 onChangedUserName = {},
                 password = "password",
                 onChangedPassword = {},
-                isEnableLogin = true,
-                isLoading = true,
+                isEnableLogin = false,
+                isLoading = false,
                 onClickLogin = {},
                 onClickRegister = {},)
         }

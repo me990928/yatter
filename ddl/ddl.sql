@@ -54,7 +54,8 @@ CREATE TABLE `status_medias` (
 
 INSERT INTO `account` (id, username, password_hash, display_name, avatar, header) VALUES
 (1, 'yt8492', 'password', 'mayamito', 'https://avatars.githubusercontent.com/u/39693306?v=4', 'https://pbs.twimg.com/profile_banners/972404402425245697/1690337648/1500x500'),
-(2, 'mitohato', 'password', 'mito', 'https://avatars.githubusercontent.com/u/19385268?v=4', 'https://pbs.twimg.com/profile_banners/3036286802/1597331435/1500x500');
+(2, 'mitohato', 'password', 'mito', 'https://avatars.githubusercontent.com/u/19385268?v=4', 'https://pbs.twimg.com/profile_banners/3036286802/1597331435/1500x500'),
+(3, 'me990928', 'password', 'Yuya', 'https://avatars.githubusercontent.com/u/108167232?v=4', 'https://pbs.twimg.com/profile_banners/3036286802/1597331435/1500x500');
 
 INSERT INTO `status` (account_id, content) VALUES
 (1, 'Hello World!'),

@@ -1,19 +1,33 @@
 package com.dmm.bootcamp.yatter2023.ui.timeline
 
+import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dmm.bootcamp.yatter2023.domain.repository.StatusRepository
+import com.dmm.bootcamp.yatter2023.domain.service.LogoutService
 import com.dmm.bootcamp.yatter2023.ui.timeline.bindingmodel.converter.StatusConverter
+import com.dmm.bootcamp.yatter2023.util.SingleLiveEvent
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class PublicTimelineViewModel(private val statusRepository: StatusRepository,): ViewModel() {
+class PublicTimelineViewModel(
+    private val statusRepository: StatusRepository,
+    private val logoutService: LogoutService,
+    ): ViewModel() {
     // TODO
     private val _uiState: MutableStateFlow<PublicTimelineUiState> =
         MutableStateFlow(PublicTimelineUiState.empty())
     val uiState: StateFlow<PublicTimelineUiState> = _uiState
+
+    private val _navigateToPost: SingleLiveEvent<Unit> = SingleLiveEvent()
+    val navigateToPost: LiveData<Unit> = _navigateToPost
+
+    private val _jumpToLoginPage: SingleLiveEvent<Unit> = SingleLiveEvent()
+    val jumpToLoginPage: LiveData<Unit> = _jumpToLoginPage
+
 
     private suspend fun fetchPublicTimeline(){
         val statusList = statusRepository.findAllPublic() // 1
@@ -44,6 +58,18 @@ class PublicTimelineViewModel(private val statusRepository: StatusRepository,): 
             _uiState.update { it.copy(isRefreshing = true) } // 2
             fetchPublicTimeline() // 3
             _uiState.update { it.copy(isRefreshing = false) } // 4
+        }
+    }
+
+    // 投稿ボタン
+    fun onClickPost(){
+        _navigateToPost.value = Unit
+    }
+
+    fun onClickLogin(){
+        viewModelScope.launch {
+            logoutService.execute()
+            _jumpToLoginPage.value = Unit
         }
     }
 }

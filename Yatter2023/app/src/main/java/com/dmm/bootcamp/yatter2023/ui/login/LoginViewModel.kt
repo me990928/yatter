@@ -1,5 +1,6 @@
 package com.dmm.bootcamp.yatter2023.ui.login
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -53,6 +54,9 @@ class LoginViewModel(
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true) }
 
+
+            Log.println(Log.ASSERT,"MainActivity","ASSERT")
+
             val snapBindingModel = uiState.value.loginBindingModel
             when(
                 val result = loginUseCase.execute(
@@ -60,6 +64,8 @@ class LoginViewModel(
                     Password(snapBindingModel.password),
                 )
             ){
+
+
                 is LoginUseCaseResult.Success -> {
                     _navigateToPublicTimeline.value = Unit
                 }
