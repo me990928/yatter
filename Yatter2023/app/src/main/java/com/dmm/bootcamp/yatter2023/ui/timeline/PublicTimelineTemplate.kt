@@ -19,6 +19,7 @@ import com.dmm.bootcamp.yatter2023.ui.theme.Yatter2023Theme
 import com.dmm.bootcamp.yatter2023.ui.timeline.bindingmodel.StatusBindingModel
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Divider
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ExtendedFloatingActionButton
 import androidx.compose.material.FloatingActionButton
@@ -44,11 +45,14 @@ import androidx.core.content.ContextCompat.startActivity
 import com.dmm.bootcamp.yatter2023.domain.service.CheckLoginService
 import com.dmm.bootcamp.yatter2023.infra.pref.MePreferences
 import com.dmm.bootcamp.yatter2023.ui.login.LoginActivity
+import com.dmm.bootcamp.yatter2023.ui.timeline.bindingmodel.MeBindingModel
+import com.dmm.bootcamp.yatter2023.ui.timeline.bindingmodel.MediaBindingModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun PublicTimelineTemplate(
+    meBindingModel: MeBindingModel,
     statusList: List<StatusBindingModel>,
     isLoading: Boolean,
     isRefreshing: Boolean,
@@ -64,7 +68,16 @@ fun PublicTimelineTemplate(
 Scaffold(
     scaffoldState = scaffoldState,
     drawerContent = {
-                    Column(modifier = Modifier.fillMaxWidth().padding(horizontal = 5.dp)) {
+                    Column(modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 5.dp)) {
+
+                        ProfileView(meBindingModel = meBindingModel)
+
+                        Divider(
+                            modifier = Modifier.padding(vertical = 5.dp)
+                        )
+
                         TextButton(
                             onClick = {
                                       onClickJumpLogin()
@@ -156,7 +169,15 @@ private fun PublicTimelineTemplatePreview() {
                 isRefreshing = false,
                 onRefresh = {},
                 onClickPost = {},
-                onClickJumpLogin = {}
+                onClickJumpLogin = {},
+                meBindingModel = MeBindingModel(
+                    id = "0",
+                    displayName = "Yuya",
+                    username = "me990928",
+                    avatar = "https://avatars.githubusercontent.com/u/19385268?v=4",
+                    followerCount = "10",
+                    followingCount = "20",
+                )
             )
         }
     }

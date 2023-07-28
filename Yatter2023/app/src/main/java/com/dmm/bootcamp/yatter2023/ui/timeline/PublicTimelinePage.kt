@@ -4,10 +4,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.dmm.bootcamp.yatter2023.infra.pref.MePreferences
+import com.dmm.bootcamp.yatter2023.ui.timeline.bindingmodel.MeBindingModel
+import com.dmm.bootcamp.yatter2023.ui.timeline.bindingmodel.StatusBindingModel
 
 @Composable
-fun PublicTimelinePage(viewModel: PublicTimelineViewModel){
+fun PublicTimelinePage(
+    viewModel: PublicTimelineViewModel
+){
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val uiStateUser by viewModel.uiStateUser.collectAsStateWithLifecycle()
 
     PublicTimelineTemplate(
         statusList = uiState.statusList,
@@ -15,6 +20,7 @@ fun PublicTimelinePage(viewModel: PublicTimelineViewModel){
         isRefreshing = uiState.isRefreshing,
         onRefresh = viewModel::onRefresh,
         onClickPost = viewModel::onClickPost,
-        onClickJumpLogin = viewModel::onClickLogin
+        onClickJumpLogin = viewModel::onClickLogin,
+        meBindingModel = uiStateUser.bindingModel,
     )
 }

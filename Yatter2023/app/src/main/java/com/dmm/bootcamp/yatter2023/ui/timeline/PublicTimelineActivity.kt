@@ -31,6 +31,8 @@ class PublicTimelineActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        viewModel.onCreate()
+
         viewModel.navigateToPost.observe(this){
             startActivity(PostActivity.newIntent(this))
         }

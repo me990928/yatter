@@ -9,6 +9,7 @@ object MeConverter {
     return MeImpl(
       id = account.id,
       username = account.username,
+      displayUsername = account.displayUsername,
       displayName = account.displayName,
       note = account.note,
       avatar = account.avatar,

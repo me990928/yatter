@@ -53,6 +53,7 @@ class PostViewModel(
             val result = postStatusUseCase.execute(
                 content = uiState.value.bindingModel.statusText,
                 attachmentList = listOf()
+
             )
 
             when (result) {

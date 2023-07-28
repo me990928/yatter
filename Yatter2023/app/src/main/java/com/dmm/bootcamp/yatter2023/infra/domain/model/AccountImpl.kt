@@ -11,6 +11,7 @@ import java.net.URL
 class AccountImpl(
   id: AccountId,
   username: Username,
+  displayUsername: String?,
   displayName: String?,
   note: String?,
   avatar: URL?,
@@ -20,6 +21,7 @@ class AccountImpl(
 ) : Account(
   id,
   username,
+  displayUsername,
   displayName,
   note,
   avatar,

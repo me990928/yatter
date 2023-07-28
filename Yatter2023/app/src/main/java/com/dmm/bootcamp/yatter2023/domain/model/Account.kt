@@ -6,6 +6,7 @@ import java.net.URL
 abstract class Account(
   id: AccountId,
   val username: Username,
+  val displayUsername: String?,
   val displayName: String?,
   val note: String?,
   val avatar: URL?,

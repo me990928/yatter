@@ -9,6 +9,7 @@ import java.net.URL
 class MeImpl(
   id: AccountId,
   username: Username,
+  displayUsername: String?,
   displayName: String?,
   note: String?,
   avatar: URL?,
@@ -18,6 +19,7 @@ class MeImpl(
 ) : Me(
   id = id,
   username = username,
+  displayUsername = displayUsername,
   displayName = displayName,
   note = note,
   avatar = avatar,

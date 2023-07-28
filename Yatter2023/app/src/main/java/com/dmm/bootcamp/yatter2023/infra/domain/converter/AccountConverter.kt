@@ -16,6 +16,7 @@ object AccountConverter {
     id = AccountId(json.id),
     username = Username(json.username),
     displayName = json.displayName,
+    displayUsername = json.username,
     note = json.note,
     avatar = json.avatar?.let { URL(it) },
     header = json.header?.let { URL(it) },

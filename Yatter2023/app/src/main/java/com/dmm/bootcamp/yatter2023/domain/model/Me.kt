@@ -5,6 +5,7 @@ import java.net.URL
 abstract class Me(
   id: AccountId,
   username: Username,
+  displayUsername: String?,
   displayName: String?,
   note: String?,
   avatar: URL?,
@@ -14,6 +15,7 @@ abstract class Me(
 ) : Account(
   id,
   username,
+  displayUsername,
   displayName,
   note,
   avatar,

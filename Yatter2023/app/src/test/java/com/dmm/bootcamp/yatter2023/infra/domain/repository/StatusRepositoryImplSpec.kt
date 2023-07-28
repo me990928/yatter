@@ -44,7 +44,7 @@ class StatusRepositoryImplSpec {
         ),
         content = "content",
         createAt = "2023-06-02T12:44:35.030Z",
-//        attachmentMediaList = listOf(),
+        attachmentMediaList = listOf(),
       )
     )
 
@@ -98,7 +98,7 @@ class StatusRepositoryImplSpec {
         createAt = ""
       ),
       content = content,
-      createAt = ""
+      createAt = "0000-00-00"
 
     )
 
